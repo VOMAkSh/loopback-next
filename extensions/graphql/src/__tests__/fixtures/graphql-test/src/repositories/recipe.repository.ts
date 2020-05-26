@@ -16,7 +16,6 @@ import {plainToClass} from 'class-transformer';
 import {RecipesDataSource} from '../datasources/recipes.datasource';
 import {RecipeInput} from '../graphql-types/recipe-input';
 import {Recipe} from '../graphql-types/recipe-type';
-import {RecipeRelations} from '../models';
 
 @bind({
   scope: BindingScope.SINGLETON,
@@ -27,7 +26,7 @@ export class RecipeRepository
   extends DefaultCrudRepository<
     Recipe,
     typeof Recipe.prototype.id,
-    RecipeRelations
+    {}
   >
   implements LifeCycleObserver {
   private static idCounter = 0;
